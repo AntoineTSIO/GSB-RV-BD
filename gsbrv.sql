@@ -430,7 +430,7 @@ CREATE TABLE `RapportVisite` (
   `rap_num` int(11) NOT NULL DEFAULT '0',
   `rap_date_visite` date NOT NULL,
   `rap_bilan` varchar(510) DEFAULT '',
-  `rap_coef_confiance` integer DEFAULT 0,
+  `rap_coef_confiance` integer DEFAULT '0',
   `rap_date_saisie` date NOT NULL,
   `rap_motif` varchar(510) DEFAULT '',
   `pra_num` int(11) DEFAULT NULL,
