@@ -34,3 +34,6 @@ AND V.vis_matricule = 'c14'
 AND V.vis_mdp = 'azerty';
 
 /* Requête pour retourner la liste des praticiens hésitants */
+
+SELECT *
+FROM Praticien ;
