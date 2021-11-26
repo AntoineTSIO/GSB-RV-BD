@@ -32,3 +32,5 @@ AND V.vis_matricule = t.vis_matricule
 WHERE t.tra_role = 'Délégué'
 AND V.vis_matricule = 'c14'
 AND V.vis_mdp = 'azerty';
+
+/* Requête pour retourner la liste des praticiens hésitants */
