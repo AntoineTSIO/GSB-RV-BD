@@ -35,5 +35,8 @@ AND V.vis_mdp = 'azerty';
 
 /* Requête pour retourner la liste des praticiens hésitants */
 
-SELECT *
-FROM Praticien ;
+SELECT Praticien.pra_num, Praticien.pra_nom, Praticien.pra_prenom
+FROM Praticien
+INNER JOIN RapportVisite
+ON Praticien.pra_num = RapportVisite.pra_num
+WHERE RapportVisite.rap_coef_confiance != 5 ;
