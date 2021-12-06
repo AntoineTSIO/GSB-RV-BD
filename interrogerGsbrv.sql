@@ -58,7 +58,8 @@ FROM RapportVisite rv
 INNER JOIN (SELECT MAX(rap_date_visite) AS rap_date_visite, MAX(rap_coef_confiance) AS rap_coef_confiance
             FROM RapportVisite
             GROUP BY rap_num ) AS r
-INNER JOIN RapportVisite as rv ON Visiteur.vis_matricule = rv.vis_matricule
+INNER JOIN Visiteur as v ON rv.vis_matricule = v.vis_matricule
 WHERE rv.rap_date_visite = r.rap_date_visite
 AND rv.rap_coef_confiance = r.rap_coef_confiance
-AND Visiteur.vis_matricule = "c14";
+AND v.vis_matricule = "c14";
+
