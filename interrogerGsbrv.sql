@@ -45,3 +45,20 @@ WHERE rv.rap_date_visite = r.rap_date_visite
 AND rv.rap_coef_confiance = r.rap_coef_confiance
 AND rv.rap_coef_confiance < 5;
 
+/* Requête pour obtenir la liste des visiteurs */
+
+SELECT vis_matricule, vis_nom, vis_prenom
+FROM Visiteur ;
+
+/* Requête pour obtenir la liste des rapports rédigés par un visiteur, dont on connait le matricule,
+   suite aux visites qu'il a effectuées au cours d'un mois connu */
+
+SELECT *
+FROM RapportVisite rv
+INNER JOIN (SELECT MAX(rap_date_visite) AS rap_date_visite, MAX(rap_coef_confiance) AS rap_coef_confiance
+            FROM RapportVisite
+            GROUP BY rap_num ) AS r
+INNER JOIN RapportVisite as rv ON Visiteur.vis_matricule = rv.vis_matricule
+WHERE rv.rap_date_visite = r.rap_date_visite
+AND rv.rap_coef_confiance = r.rap_coef_confiance
+AND Visiteur.vis_matricule = "c14";
