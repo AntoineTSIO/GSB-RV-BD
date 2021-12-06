@@ -433,6 +433,7 @@ CREATE TABLE `RapportVisite` (
   `rap_coef_confiance` integer DEFAULT '0',
   `rap_date_saisie` date NOT NULL,
   `rap_motif` varchar(510) DEFAULT '',
+  `rap_lu` boolean DEFAULT false,
   `pra_num` int(11) DEFAULT NULL,
   PRIMARY KEY (`vis_matricule`,`rap_num`),
   KEY `FK_RAPPORT_VISITE_PRATICIEN` (`pra_num`),
