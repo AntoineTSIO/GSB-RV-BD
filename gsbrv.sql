@@ -427,7 +427,7 @@ DROP TABLE IF EXISTS `RapportVisite`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `RapportVisite` (
   `vis_matricule` varchar(20) NOT NULL DEFAULT '',
-  `rap_num` int(11) NOT NULL AUTO_INCREMENT,
+  `rap_num` int(11) NOT NULL,
   `rap_date_visite` date NOT NULL,
   `rap_bilan` varchar(510) DEFAULT '',
   `rap_coef_confiance` integer DEFAULT '0',
