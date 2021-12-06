@@ -53,15 +53,13 @@ FROM Visiteur ;
 /* Requête pour obtenir la liste des rapports rédigés par un visiteur, dont on connait le matricule,
    suite aux visites qu'il a effectuées au cours d'un mois connu */
 
-SELECT *
+SELECT rv.rap_num, rv.rap_date_visite, rv.rap_date_saisie, rv.rap_bilan, rv.rap_motif, rv.rap_coef_confiance, rv.rap_lu
 FROM RapportVisite rv
-INNER JOIN (SELECT MAX(rap_date_visite) AS rap_date_visite, MAX(rap_coef_confiance) AS rap_coef_confiance
-            FROM RapportVisite
-            GROUP BY rap_num ) AS r
-INNER JOIN Visiteur as v ON rv.vis_matricule = v.vis_matricule
-WHERE rv.rap_date_visite = r.rap_date_visite
-AND rv.rap_coef_confiance = r.rap_coef_confiance
-AND v.vis_matricule = "c14";
+INNER JOIN Visiteur as v
+ON rv.vis_matricule = v.vis_matricule
+WHERE v.vis_matricule = "c3"
+AND MONTH(rv.rap_date_visite) = 12
+AND YEAR(rv.rap_date_visite) = 2021
 
 /* Requête pour enregistrer le fait qu'un rapport dont on connaît le numéro et le rédacteur a été lue */
 
