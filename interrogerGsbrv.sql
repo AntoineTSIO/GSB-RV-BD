@@ -35,8 +35,13 @@ AND V.vis_mdp = 'azerty';
 
 /* Requête pour retourner la liste des praticiens hésitants */
 
-SELECT Praticien.pra_num, Praticien.pra_nom, Praticien.pra_prenom
-FROM Praticien
-INNER JOIN RapportVisite
-ON Praticien.pra_num = RapportVisite.pra_num
-WHERE RapportVisite.rap_coef_confiance != 5 ;
+SELECT p.pra_num, p.pra_nom, p.pra_ville, p.pra_coefnotoriete, rv.rap_date_visite, rv.rap_coef_confiance
+FROM Praticien p
+INNER JOIN (SELECT MAX(rap_date_visite) AS rap_date_visite, MAX(rap_coef_confiance) AS rap_coef_confiance
+            FROM RapportVisite
+            GROUP BY rap_num ) AS r
+INNER JOIN RapportVisite as rv ON p.pra_num = rv.pra_num
+WHERE rv.rap_date_visite = r.rap_date_visite
+AND rv.rap_coef_confiance = r.rap_coef_confiance
+AND rv.rap_coef_confiance < 5;
+
