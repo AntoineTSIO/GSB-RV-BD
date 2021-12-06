@@ -63,3 +63,9 @@ WHERE rv.rap_date_visite = r.rap_date_visite
 AND rv.rap_coef_confiance = r.rap_coef_confiance
 AND v.vis_matricule = "c14";
 
+/* Requête pour enregistrer le fait qu'un rapport dont on connaît le numéro et le rédacteur a été lue */
+
+UPDATE RapportVisite
+SET rap_lu = true
+WHERE vis_matricule = "a131"
+AND rap_num = 1 ;
