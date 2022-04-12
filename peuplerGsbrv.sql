@@ -1,7 +1,7 @@
 use gsbrv ;
 
 INSERT INTO RapportVisite(vis_matricule, rap_num, rap_date_visite, rap_bilan, rap_coef_confiance, rap_date_saisie, rap_motif, pra_num) VALUES
-('a131',1,'2021/07/01',"Praticien hésitant",0,'2021/06/03',"Rendez-vous semestriel",1),
+('a131',1,'2021/07/01',"Praticien hésitant",0,'2021/07/03',"Rendez-vous semestriel",1),
 ('a17',2,'2021/06/22',"Praticien plutôt confiant",4,'2021/06/25',"Premier rendez-vous",2),
 ('a55',3,'2021/07/21',"Praticien assez confiant",3,'2021/07/28',"Rendez-vous semestriel",3),
 ('a93',4,'2021/07/24',"Praticien plutôt confiant",4,'2021/07/31',"Rendez-vous semestriel",4),
